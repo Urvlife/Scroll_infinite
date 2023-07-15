@@ -3,7 +3,7 @@
 
 
 
-import Image from 'next/image'
+import Photo from 'next/image'
 import { useState, useEffect } from 'react'
 import { getCuratedPhotos } from './utils/api'
 import router, { useRouter } from 'next/router';
@@ -12,7 +12,7 @@ function cn(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export type Image = {
+export type Photo = {
   id: number
   href: string
   src: {
@@ -24,10 +24,10 @@ export type Image = {
   photographer: string
 }
 
-export default function Gallery({ }: { images: Image[] }) {
+export default function Gallery({ }: { images: Photo[] }) {
 
-  const [curatedPhotos, setCuratedPhotos] = useState<Image[]>([]);
-  const [allPhotos, setAllPhotos] = useState<Image[]>([]);
+  const [curatedPhotos, setCuratedPhotos] = useState<Photo[]>([]);
+  const [allPhotos, setAllPhotos] = useState<Photo[]>([]);
   const [page, setPage] = useState<number>(1);
   const [keyword, setKeyword] = useState<string>('')
 
@@ -122,7 +122,7 @@ function BlurImage({ image }: { image: Image }) {
 
   return (
     <div className='imageItems'>
-      <Image
+      <Photo
         alt=""
         src={image?.src?.landscape}
         // layout="fill"
