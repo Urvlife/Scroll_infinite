@@ -24,7 +24,7 @@ export type Image = {
   photographer: string
 }
 
-export default function Gallery({ }: { images: Image[] }) {
+export default function Page() {
 
   const [curatedPhotos, setCuratedPhotos] = useState<Image[]>([]);
   const [allPhotos, setAllPhotos] = useState<Image[]>([]);
